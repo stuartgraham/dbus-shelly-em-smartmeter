@@ -20,16 +20,7 @@ This is my first project with the Victron Venus OS on GitHub, so I took some ide
 
 ## How it works
 ### My setup
-- 3-Phase installation
-- Shelly 1PM with latest firmware (20220209-094317/v1.11.8-g8c7bb8d)
-  - Measuring AC output of SUN-2000 GTIL on phase L3
-  - Connected to Wifi netowrk "A" with a known IP  
-- Shelly 1PM with latest firmware (20220209-094317/v1.11.8-g8c7bb8d)
-  - Measuring AC output of Envertech EVT-500 and Hoymiles HM-800 on phase L3
-  - Connected to Wifi netowrk "A" with a known IP  
-- Shelly 3EM used as a grid meter
-  - Connected over https://github.com/fabian-lauer/dbus-shelly-3em-smartmeter
-  - Connected to Wifi netowrk "A" with a known IP  
+- Shelly EM firmware (20230503-102005/v1.13.0-g9aed950)
 - Venus OS on Raspberry PI 4 4GB version 1.1 - Firmware v2.84
   - No other devices from Victron connected
   - Connected to Wifi netowrk "A"
@@ -39,7 +30,7 @@ As mentioned above the script is inspired by @fabian-lauer dbus-shelly-3em-smart
 So what is the script doing:
 - Running as a service
 - connecting to DBus of the Venus OS `com.victronenergy.pvinverter.http_{DeviceInstanceID_from_config}`
-- After successful DBus connection Shelly 1PM is accessed via REST-API - simply the /status is called and a JSON is returned with all details
+- After successful DBus connection Shelly EM is accessed via REST-API - simply the /status is called and a JSON is returned with all details
   A sample JSON file from Shelly 1PM can be found [here](docs/shelly1pm-status-sample.json)
 - Serial/MAC is taken from the response as device serial
 - Paths are added to the DBus with default value 0 - including some settings like name, etc
@@ -61,7 +52,7 @@ After that call the install.sh script.
 
 The following script should do everything for you:
 ```
-wget https://github.com/vincegod/dbus-shelly-em-smartmeter/archive/refs/heads/main.zip
+wget https://github.com/Goaheadz/dbus-shelly-em-smartmeter/archive/refs/heads/main.zip
 unzip main.zip "dbus-shelly-em-smartmeter-main/*" -d /data
 mv /data/dbus-shelly-em-smartmeter-main /data/dbus-shelly-em-smartmeter
 chmod a+x /data/dbus-shelly-em-smartmeter/install.sh
