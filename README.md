@@ -1,3 +1,8 @@
+# 2 .py files
+one for grid and the other for PV
+grid is in CT clamp 0 and PV inverter is in CT Clamp 1
+change config as needed and use py file as needed
+
 # dbus-shelly-em-smartmeter
 Integrate Shelly EM into Victron Energies Venus OS
 
