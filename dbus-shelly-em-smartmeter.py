@@ -3,6 +3,7 @@
 # import normal packages
 import platform 
 import logging
+from logging.handlers import RotatingFileHandler
 import sys
 import os
 import sys
@@ -209,6 +210,7 @@ def main():
                             level=logging.INFO,
                             handlers=[
                                 logging.FileHandler("%s/current.log" % (os.path.dirname(os.path.realpath(__file__)))),
+                                RotatingFileHandler("%s/current.log" % (os.path.dirname(os.path.realpath(__file__))), 5*1024),
                                 logging.StreamHandler()
                             ])
  
