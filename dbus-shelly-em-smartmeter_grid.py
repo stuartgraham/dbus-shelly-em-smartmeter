@@ -209,7 +209,7 @@ def main():
                             level=logging.INFO,
                             handlers=[
                                 #logging.FileHandler("%s/current.log" % (os.path.dirname(os.path.realpath(__file__)))),
-                                RotatingFileHandler("%s/current.log" % (os.path.dirname(os.path.realpath(__file__))), 5*1024),
+                                RotatingFileHandler("%s/current.log" % (os.path.dirname(os.path.realpath(__file__))), maxBytes=5*1024, backupCount=0),
                                 logging.StreamHandler()
                             ])
  
