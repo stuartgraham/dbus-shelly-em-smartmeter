@@ -6,7 +6,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import sys
 import os
-
+import sys
 if sys.version_info.major == 2:
     import gobject
 else:
